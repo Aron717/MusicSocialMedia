@@ -21,7 +21,7 @@
         </ul>
         <ul class="login-ul">
             <li class="login-button"><a href="login.php">Login</a></li>
-            <li class="login-button"><a href="sign-up.php">Register</a></li>
+            <li class="login-button"><a href="signup.php">Register</a></li>
         </ul>
 
     </header>
