@@ -7,9 +7,20 @@ include_once 'header.php';
             <h2 style="color: black;">Log in</h2>
             <div>
                 <form style="display: flex; flex-direction: column; align-items: center" action="includes/login.inc.php" method="post">
-                    <input type="text" name="name" placeholder="Username/Email...">
+                    <input type="text" name="uid" placeholder="Username/Email...">
                     <input type="password" name="pwd" placeholder="Password...">
                     <button style="margin-top: 10px" type="submit" name="submit">Log in</button>
+                    <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "emptyinput") {
+                            echo "<p style='color: purple; font-weight: bold'>Fill in all fields</p>";
+                        }
+
+                        else if ($_GET["error"] == "wronglogin") {
+                            echo "<p style='color: purple; font-weight: bold''>Incorrect log in!</p>";
+                        }
+                    }
+                    ?>
                 </form>
             </div>
         </div>
