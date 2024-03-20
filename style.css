@@ -1,0 +1,196 @@
+body {
+    background-image: url("images/bg.jpg");
+    backdrop-filter: hue-rotate(200deg) blur(3px);
+    background-repeat: repeat-y;
+    background-size: auto;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #05d4f1;
+    background-color: rgba(8, 86, 71, 0.5);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(29, 252, 218, 0.71);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(11, 121, 37, 0.38);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 1px;
+}
+.div-nav {
+    background-color: rgba(11, 121, 100, 0.38);
+    width: 100%;
+    height: 5vw;
+    margin: 0;
+}
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5vw;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5vw;
+    margin: auto;
+    padding: 0;
+}
+li {
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: ease-in;
+    transition-duration: 0.2s;
+}
+
+a:hover {
+    color: rgba(0, 255, 208);
+}
+li:hover {
+    transform: translateY(-4px);
+}
+
+.login-button{
+    margin: 0 !important;
+}
+
+.login-ul {
+    background-color: rgba(0, 255, 208, 0.49);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50px;
+    list-style-type: none;
+    margin: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.cards {
+    background-color: rgba(0, 255, 208, 0.56);
+    margin: 20px;
+    width: 20vw;
+    height: 24vw;
+    border-radius: 20px;
+    display: flex;
+    transition-duration: 0.2s;
+}
+
+.cards:hover {
+    transform: translateY(-3px);
+}
+
+.cards .cards-product {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.69);
+    width: 17vw;
+    height: 21vw;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.cards .cards-product .card-description {
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 17vw;
+    height: 4vw;
+    border-radius: 0 0 20px 20px;
+    color: black;
+}
+
+span {
+    margin: auto;
+    font-size: 20px;
+    transition-duration: 0.5s;
+}
+
+span:hover {
+    transform: translateY(-5px);
+}
+
+.description-button {
+    background-color: rgba(0, 255, 208, 0.56);
+    padding: 10px;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+.description-button:hover {
+    color: black;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.sign-up-div {
+    background-color: rgba(0, 255, 208, 0.56);
+    margin: auto;
+    width: 25vw;
+    height: 29vw;
+    border-radius: 20px;
+    display: flex;
+}
+
+.sign-up-div .sign-up-div2 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.69);
+    width: 22vw;
+    height: 26vw;
+    border-radius: 20px;
+    margin: auto;
+}
+
+input {
+    margin: 2px 0 2px 0;
+    border-radius: 20px;
+    width: 200px;
+    border: 2px rgba(5, 241, 170, 0.8) solid;
+    transition: 1s;
+}
+
+input:hover {
+    border: 2px rgba(5, 186, 241, 0.8) solid;
+    width: 230px;
+    cursor: pointer;
+}
+
+button:hover {
+    border: 2px rgba(5, 186, 241, 0.8) solid;
+    width: 200px;
+    cursor: pointer;
+}
+
+button {
+    margin: 2px 0 2px 0;
+    border-radius: 20px;
+    width: 100px;
+    border: 2px rgba(5, 241, 170, 0.8) solid;
+    transition: 1s;
+}
