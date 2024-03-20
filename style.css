@@ -194,3 +194,8 @@ button {
     border: 2px rgba(5, 241, 170, 0.8) solid;
     transition: 1s;
 }
+
+p {
+    color: black;
+    font-weight: bold;
+}

@@ -13,8 +13,37 @@ include_once 'header.php';
                     <input type="password" name="pwd" placeholder="Password...">
                     <input type="password" name="pwdrepeat" placeholder="Repeat password...">
                     <button style="margin-top: 10px" type="submit" name="submit">Sign up</button>
+                    <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "emptyinput") {
+                            echo "<p style='color: purple; font-weight: bold'>Fill in all fields</p>";
+                        }
+
+                        else if ($_GET["error"] == "invaliduid") {
+                            echo "<p style='color: purple; font-weight: bold''>Choose a proper username</p>";
+                        }
+                        else if ($_GET["error"] == "invalidemail") {
+                            echo "<p style='color: purple; font-weight: bold'>Choose a proper email</p>";
+                        }
+                        else if ($_GET["error"] == "pwddontmatch") {
+                            echo "<p style='color: purple; font-weight: bold''>Password don't match</p>";
+                        }
+                        else if ($_GET["error"] == "stmtfailed") {
+                            echo "<p style='color: purple; font-weight: bold''>Something went wrong, try again!</p>";
+                        }
+                        else if ($_GET["error"] == "usernametaken") {
+                            echo "<p style='color: purple; font-weight: bold''>Choose another username</p>";
+                        }
+                        else if ($_GET["error"] == "none") {
+                            echo "<p style='color: purple; font-weight: bold''>You have signed up</p>";
+                        }
+                    }
+                    ?>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<?php
+include_once 'footer.php';
+?>
