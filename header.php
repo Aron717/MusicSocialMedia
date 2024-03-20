@@ -26,8 +26,8 @@
         <ul class="login-ul">
             <?php
                 if (isset($_SESSION["useruid"])) {
-                    echo "<li class='login-button'><a href='profile.php'>Profile</a></li>";
                     echo "<li class='login-button'><a href='includes/logout.inc.php'>Log out</a></li>";
+                    echo "<li class='login-button'><a href='profile.php'>Profile</a></li>";
                 }
                 else {
                     echo "<li class='login-button'><a href='login.php'>Log in</a></li>";
