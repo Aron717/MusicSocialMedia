@@ -181,13 +181,13 @@ input:hover {
     cursor: pointer;
 }
 
-button:hover {
+.button-log-reg:hover {
     border: 2px rgba(5, 186, 241, 0.8) solid;
     width: 200px;
     cursor: pointer;
 }
 
-button {
+.button-log-reg {
     margin: 2px 0 2px 0;
     border-radius: 20px;
     width: 100px;
@@ -198,4 +198,21 @@ button {
 p {
     color: black;
     font-weight: bold;
+}
+
+.index-h1 {
+
+}
+
+.register-button {
+    width: 200px;
+    font-size: 20px;
+    background-color: transparent;
+    border: transparent none;
+    color: white;
+}
+
+.register-button:hover {
+    cursor: pointer;
+    color: #05d4f1;
 }

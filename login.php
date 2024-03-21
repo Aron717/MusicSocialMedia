@@ -9,7 +9,7 @@ include_once 'header.php';
                 <form style="display: flex; flex-direction: column; align-items: center" action="includes/login.inc.php" method="post">
                     <input type="text" name="uid" placeholder="Username/Email...">
                     <input type="password" name="pwd" placeholder="Password...">
-                    <button style="margin-top: 10px" type="submit" name="submit">Log in</button>
+                    <button class="button-log-reg" style="margin-top: 10px" type="submit" name="submit">Log in</button>
                     <?php
                     if (isset($_GET["error"])) {
                         if ($_GET["error"] == "emptyinput") {
@@ -19,8 +19,12 @@ include_once 'header.php';
                         else if ($_GET["error"] == "wronglogin") {
                             echo "<p style='color: purple; font-weight: bold''>Incorrect log in!</p>";
                         }
+                        else if ($_GET["error"] == "login") {
+                            echo "<p style='color: purple; font-weight: bold''>Log in first to see more!</p>";
+                        }
                     }
                     ?>
+                    <a style="color: black; margin-top: 10px" href="signup.php">Not registered yet?</a>
                 </form>
             </div>
         </div>

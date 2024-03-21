@@ -1,6 +1,9 @@
 <?php
 include_once 'header.php';
-
+if (!isset($_SESSION["useruid"])) {
+    header("location: login.php?error=login");
+    exit();
+}
 
 ?>
 

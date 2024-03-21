@@ -12,7 +12,7 @@ include_once 'header.php';
                     <input type="text" name="uid" placeholder="Username...">
                     <input type="password" name="pwd" placeholder="Password...">
                     <input type="password" name="pwdrepeat" placeholder="Repeat password...">
-                    <button style="margin-top: 10px" type="submit" name="submit">Sign up</button>
+                    <button class="button-log-reg" style="margin-top: 10px" type="submit" name="submit">Sign up</button>
                     <?php
                     if (isset($_GET["error"])) {
                         if ($_GET["error"] == "emptyinput") {
@@ -37,8 +37,10 @@ include_once 'header.php';
                         else if ($_GET["error"] == "none") {
                             echo "<p style='color: purple; font-weight: bold''>You have signed up</p>";
                         }
+
                     }
                     ?>
+                    <a style="color: black; margin-top: 10px" href="signup.php">Already registered?</a>
                 </form>
             </div>
         </div>
