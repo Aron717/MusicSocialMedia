@@ -40,7 +40,7 @@ include_once 'header.php';
 
                     }
                     ?>
-                    <a style="color: black; margin-top: 10px" href="signup.php">Already registered?</a>
+                    <a style="color: black; margin-top: 10px" href="login.php">Already registered?</a>
                 </form>
             </div>
         </div>

@@ -15,17 +15,17 @@ body {
     width: 15px;
 }
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #05d4f1;
-    background-color: rgba(8, 86, 71, 0.5);
+    box-shadow: inset 0 0 5px #8705f1;
+    background-color: rgba(51, 8, 86, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(29, 252, 218, 0.71);
+    background: rgba(144, 29, 252, 0.71);
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(11, 121, 37, 0.38);
+    background: rgba(38, 11, 121, 0.38);
 }
 
 a {
@@ -34,7 +34,7 @@ a {
     margin: 1px;
 }
 .div-nav {
-    background-color: rgba(11, 121, 100, 0.38);
+    background-color: rgba(133,83,187,0.51);
     width: 100%;
     height: 5vw;
     margin: 0;
@@ -64,7 +64,7 @@ li {
 }
 
 a:hover {
-    color: rgba(0, 255, 208);
+    color: rgba(211, 176, 255, 0.85);
 }
 li:hover {
     transform: translateY(-4px);
@@ -75,7 +75,7 @@ li:hover {
 }
 
 .login-ul {
-    background-color: rgba(0, 255, 208, 0.49);
+    background-color: rgba(133,83,187,0.51);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -87,7 +87,7 @@ li:hover {
 }
 
 .cards {
-    background-color: rgba(0, 255, 208, 0.56);
+    background-color: rgba(133,83,187,0.51);
     margin: 20px;
     width: 20vw;
     height: 24vw;
@@ -132,7 +132,7 @@ span:hover {
 }
 
 .description-button {
-    background-color: rgba(0, 255, 208, 0.56);
+    background-color: rgba(183, 0, 255, 0.56);
     padding: 10px;
     border-radius: 20px;
     transition-duration: 0.5s;
@@ -146,7 +146,7 @@ span:hover {
 }
 
 .sign-up-div {
-    background-color: rgba(0, 255, 208, 0.56);
+    background-color: rgba(133,83,187,0.51);
     margin: auto;
     width: 25vw;
     height: 29vw;
@@ -171,7 +171,7 @@ input {
     margin: 2px 0 2px 0;
     border-radius: 20px;
     width: 200px;
-    border: 2px rgba(5, 241, 170, 0.8) solid;
+    border: 2px rgba(133,83,187,0.51) solid;
     transition: 1s;
 }
 
@@ -191,7 +191,7 @@ input:hover {
     margin: 2px 0 2px 0;
     border-radius: 20px;
     width: 100px;
-    border: 2px rgba(5, 241, 170, 0.8) solid;
+    border: 2px rgba(133,83,187,0.51);
     transition: 1s;
 }
 
