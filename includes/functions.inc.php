@@ -64,9 +64,6 @@ function uidExists($conn, $username, $email) {
         return $result;
     }
 
-
-    msqli_stmt_close($stmt);
-
 }
 
 function createUser($conn, $name, $email, $username, $pwd) {
@@ -105,6 +102,7 @@ function loginUser($conn, $username, $pwd) {
         exit();
     }
 
+
     $pwdHashed = $uidExists["usersPwd"];
     $checkPwd = password_verify($pwd, $pwdHashed);
 
@@ -114,8 +112,10 @@ function loginUser($conn, $username, $pwd) {
     }
     else if ($checkPwd === true) {
         session_start();
+        $_SESSION["userfullname"] = $uidExists["usersName"];
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["usersUid"];
+
         header("location: ../index.php");
         exit();
     }
