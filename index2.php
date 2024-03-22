@@ -11,7 +11,7 @@ if (!isset($_SESSION["useruid"])) {
                 <?php
                 echo "<h1>Welcome " . $_SESSION["useruid"] . "!</h1>";
                 ?>
-                <h1 class="index-h1">Start checking out our collection!</h1>
+                <h1 style="font-size: xx-large" class="index-h1">Start checking out our collection!</h1>
                 <button class="register-button" onclick="window.location.href='products.php'">Click here!</button>
             </div>
             <img src="images/index2-img1.jpg" alt="Music Production" style="width: 40%; margin-top: 20px" draggable="false">

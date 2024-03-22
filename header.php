@@ -21,8 +21,23 @@
             <li><a href="products.php">Products</a></li>
             <li><a href="">Costumers</a></li>
             <li><a href="">Creators</a></li>
+            <li><a href="">Sections</a></li>
             <li><a href="">About us</a></li>
         </ul>
+        <?php
+        $expected_url = "/MusicSocialMedia/index.php";
+        $expected_url2 = "/MusicSocialMedia/index2.php";
+        $current_url = $_SERVER["REQUEST_URI"];
+        if ($current_url == $expected_url OR $expected_url2) {
+            echo "<div class='dropdown'>";
+            echo "<button class='dropbtn'>Sections</button>";
+            echo "<div class='dropdown-content'>";
+            echo "<a href='#'>Link 1</a>
+                            <a href='#'>Link 2</a>
+                            <a href=''#'>Link 3</a>";
+            echo "</div></div>";
+        }
+        ?>
         <ul class="login-ul">
             <?php
                 if (isset($_SESSION["useruid"])) {
