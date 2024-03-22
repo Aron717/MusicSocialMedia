@@ -43,7 +43,7 @@ function pwdMatch($pwd, $pwdRepeat) {
     return $result;
 }
 
-function uidExists($conn, $username, $email) {
+function uidExists($conn, $username) {
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -51,7 +51,7 @@ function uidExists($conn, $username, $email) {
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    mysqli_stmt_bind_param($stmt, "ss", $username, $username);
     mysqli_stmt_execute($stmt);
 
     $resultsData = mysqli_stmt_get_result($stmt);
@@ -95,7 +95,7 @@ function emptyInputLogin($username, $pwd) {
 }
 
 function loginUser($conn, $username, $pwd) {
-    $uidExists = uidExists($conn, $username, $username);
+    $uidExists = uidExists($conn, $username);
 
     if ($uidExists === false) {
         header("location: ../login.php?error=wronglogin");
@@ -118,5 +118,16 @@ function loginUser($conn, $username, $pwd) {
 
         header("location: ../index.php");
         exit();
+    }
+}
+
+function search($conn ,$text)
+{
+    $sql = "SELECT * FROM users WHERE usersUid LIKE '%" . mysqli_real_escape_string($conn, $text) . "%' OR usersName LIKE '%". mysqli_real_escape_string($conn, $text) ."%'";
+    $query = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($query)) {
+        echo "<div style='width: 100vw; height: 100px; background-color: rgba(255,255,255,0.53); margin: 20px 0 0 0; display: flex; align-items: center; padding-left: 40px'>";
+        echo "<div style='width: 80px; height: 80px; background-color: #8705f1; border-radius: 50%;'></div>";
+        echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a></div>";
     }
 }

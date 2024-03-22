@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require_once "includes/functions.inc.php";
+    require_once "includes/dbh.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +21,7 @@
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="products.php">Products</a></li>
-            <li><a href="">Costumers</a></li>
-            <li><a href="">Creators</a></li>
-            <li><a href="">Sections</a></li>
+            <li><a href="">Costumers/Creators</a></li>
             <li><a href="">About us</a></li>
         </ul>
         <?php
@@ -32,12 +32,15 @@
             echo "<div class='dropdown'>";
             echo "<button class='dropbtn'>Sections</button>";
             echo "<div class='dropdown-content'>";
-            echo "<a href='#'>Link 1</a>
-                            <a href='#'>Link 2</a>
+            echo "<a href='#reg'>Register</a>
+                            <a href='#collection'>Collection</a>
                             <a href=''#'>Link 3</a>";
             echo "</div></div>";
         }
         ?>
+        <form action="search.php" method="post">
+            <input placeholder="Search..." style="margin-right: 30px;" type="text" name="searchbar">
+        </form>
         <ul class="login-ul">
             <?php
                 if (isset($_SESSION["useruid"])) {
