@@ -28,7 +28,7 @@
         $expected_url = "/MusicSocialMedia/index.php";
         $expected_url2 = "/MusicSocialMedia/index2.php";
         $current_url = $_SERVER["REQUEST_URI"];
-        if ($current_url == $expected_url OR $expected_url2) {
+        if ($current_url == $expected_url OR $current_url == $expected_url2) {
             echo "<div class='dropdown'>";
             echo "<button class='dropbtn'>Sections</button>";
             echo "<div class='dropdown-content'>";
