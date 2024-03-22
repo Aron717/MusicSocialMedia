@@ -21,7 +21,6 @@
             <li><a href="products.php">Products</a></li>
             <li><a href="">Costumers</a></li>
             <li><a href="">Creators</a></li>
-            <li><a href="">Sections</a></li>
             <li><a href="">About us</a></li>
         </ul>
         <?php
