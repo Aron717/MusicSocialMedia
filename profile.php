@@ -11,7 +11,6 @@ $query = mysqli_query($conn, "SELECT * FROM users WHERE usersId = " . mysqli_rea
 ?>
 
 <div style="margin: auto; background-color: rgba(0,0,0,0.51); width: 100vw; height: 100vh; display: flex; align-items: center; flex-direction: column">
-    <img src="images/nopfp.png" style="background-color: rgba(119,79,197,0.57); width: 200px; height: 200px; border-radius: 50%; margin-top: 30px">
     <?php
     if ($row = mysqli_fetch_assoc($query)) {
         echo "<h1>" . $row["usersName"] . "</h1>";
@@ -22,10 +21,10 @@ $query = mysqli_query($conn, "SELECT * FROM users WHERE usersId = " . mysqli_rea
         while ($rowImg = mysqli_fetch_assoc($resultImg)) {
             echo "<div>";
                 if ($rowImg["status"] == 0) {
-                    echo "<img src='images/profile".$id.".png'>";
+                    $pfp = 'data/profile'.$id.'.jpg?'.mt_rand();
                 }
                 else {
-                    echo "<img src='images/nopfp.png'>";
+                    $pfp = 'images/nopfp.png';
                 }
             echo "</div>";
         }
@@ -35,6 +34,7 @@ $query = mysqli_query($conn, "SELECT * FROM users WHERE usersId = " . mysqli_rea
     }
 
     ?>
+    <img src="<?=$pfp; ?>" style="background-color: rgba(119,79,197,0.57); width: 200px; height: 200px; border-radius: 50%; margin-top: 30px">
     <form action="includes/imgupload.inc.php" method="post" enctype="multipart/form-data">
         Select image to upload:
         <input type="file" name="file">

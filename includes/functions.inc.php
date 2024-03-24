@@ -74,9 +74,6 @@ function createUser($conn, $name, $email, $username, $pwd) {
         exit();
     }
 
-    $sql2 = "SELECT * FROM user WHERE usersUid = '$username' AND usersName = '$name'";
-    $result = mysqli_query($conn, $sql2);
-
 
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -84,6 +81,9 @@ function createUser($conn, $name, $email, $username, $pwd) {
     mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    $newId = mysqli_insert_id($conn);
+    $sql = "INSERT INTO profileimg (userid, status) VALUES ('$newId', 1)";
+    mysqli_query($conn, $sql);
 
     header("location: ../signup.php?error=none");
     exit();
@@ -132,8 +132,21 @@ function search($conn ,$text)
     $sql = "SELECT * FROM users WHERE usersUid LIKE '%" . mysqli_real_escape_string($conn, $text) . "%' OR usersName LIKE '%". mysqli_real_escape_string($conn, $text) ."%'";
     $query = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($query)) {
+        $id = $row["usersId"];
         echo "<div style='width: 100vw; height: 100px; background-color: rgba(255,255,255,0.53); margin: 20px 0 0 0; display: flex; align-items: center; padding-left: 40px'>";
-        echo "<img src='images/nopfp.png' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%;'>";
+        $sqlImg = "SELECT * FROM profileimg WHERE userid = '$id'";
+        $resultImg = mysqli_query($conn, $sqlImg);
+        while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+            echo "<div>";
+            if ($rowImg["status"] == 0) {
+                $pfp = 'data/profile'.$id.'.jpg';
+            }
+            else {
+                $pfp = 'images/nopfp.png';
+            }
+            echo "</div>";
+        }
+        echo "<img src='". $pfp ."' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%;'>";
         echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a></div>";
     }
 }
