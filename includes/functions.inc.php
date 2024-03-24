@@ -74,11 +74,17 @@ function createUser($conn, $name, $email, $username, $pwd) {
         exit();
     }
 
+    $sql2 = "SELECT * FROM user WHERE usersUid = '$username' AND usersName = '$name'";
+    $result = mysqli_query($conn, $sql2);
+
+
+
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
     mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+
     header("location: ../signup.php?error=none");
     exit();
 }

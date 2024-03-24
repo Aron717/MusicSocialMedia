@@ -16,6 +16,19 @@ $query = mysqli_query($conn, "SELECT * FROM users WHERE usersId = " . mysqli_rea
     if ($row = mysqli_fetch_assoc($query)) {
         echo "<h1>" . $row["usersName"] . "</h1>";
         echo "<h2>" . $row["usersUid"] . "</h2>";
+        $id = $row["usersId"];
+        $sqlImg = "SELECT * FROM profileimg WHERE userid = '$id'";
+        $resultImg = mysqli_query($conn, $sqlImg);
+        while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+            echo "<div>";
+                if ($rowImg["status"] == 0) {
+                    echo "<img src='images/profile".$id.".png'>";
+                }
+                else {
+                    echo "<img src='images/nopfp.png'>";
+                }
+            echo "</div>";
+        }
     }
     else {
         echo "<h1>No profile exists like that!</h1>";
