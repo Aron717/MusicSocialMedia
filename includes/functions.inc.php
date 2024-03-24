@@ -127,7 +127,7 @@ function search($conn ,$text)
     $query = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($query)) {
         echo "<div style='width: 100vw; height: 100px; background-color: rgba(255,255,255,0.53); margin: 20px 0 0 0; display: flex; align-items: center; padding-left: 40px'>";
-        echo "<div style='width: 80px; height: 80px; background-color: #8705f1; border-radius: 50%;'></div>";
+        echo "<img src='images/nopfp.png' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%;'>";
         echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a></div>";
     }
 }
