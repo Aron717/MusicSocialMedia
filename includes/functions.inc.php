@@ -43,7 +43,7 @@ function pwdMatch($pwd, $pwdRepeat) {
     return $result;
 }
 
-function uidExists($conn, $username, $email) {
+function uidExists($conn, $username) {
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -51,7 +51,7 @@ function uidExists($conn, $username, $email) {
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    mysqli_stmt_bind_param($stmt, "ss", $username, $username);
     mysqli_stmt_execute($stmt);
 
     $resultsData = mysqli_stmt_get_result($stmt);
@@ -74,11 +74,17 @@ function createUser($conn, $name, $email, $username, $pwd) {
         exit();
     }
 
+
+
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
     mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    $newId = mysqli_insert_id($conn);
+    $sql = "INSERT INTO profileimg (userid, status) VALUES ('$newId', 1)";
+    mysqli_query($conn, $sql);
+
     header("location: ../signup.php?error=none");
     exit();
 }
@@ -95,7 +101,7 @@ function emptyInputLogin($username, $pwd) {
 }
 
 function loginUser($conn, $username, $pwd) {
-    $uidExists = uidExists($conn, $username, $username);
+    $uidExists = uidExists($conn, $username);
 
     if ($uidExists === false) {
         header("location: ../login.php?error=wronglogin");
@@ -118,5 +124,29 @@ function loginUser($conn, $username, $pwd) {
 
         header("location: ../index.php");
         exit();
+    }
+}
+
+function search($conn ,$text)
+{
+    $sql = "SELECT * FROM users WHERE usersUid LIKE '%" . mysqli_real_escape_string($conn, $text) . "%' OR usersName LIKE '%". mysqli_real_escape_string($conn, $text) ."%'";
+    $query = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($query)) {
+        $id = $row["usersId"];
+        echo "<div style='width: 50vw; height: 100px; background-color: rgba(255,255,255,0.53); border-radius: 10px;margin: 20px 0 0 0; display: flex; align-items: center; padding-left: 40px'>";
+        $sqlImg = "SELECT * FROM profileimg WHERE userid = '$id'";
+        $resultImg = mysqli_query($conn, $sqlImg);
+        while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+            echo "<div>";
+            if ($rowImg["status"] == 0) {
+                $pfp = 'data/profile'.$id.'.jpg?'.mt_rand();
+            }
+            else {
+                $pfp = 'images/nopfp.png';
+            }
+            echo "</div>";
+        }
+        echo "<img src='". $pfp ."' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%; object-fit: cover'>";
+        echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a><button style='margin-left: 20px; background-color: #8705f1; color: white; border-radius: 20px;'>Add</button></div>";
     }
 }
