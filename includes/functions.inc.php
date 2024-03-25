@@ -147,6 +147,6 @@ function search($conn ,$text)
             echo "</div>";
         }
         echo "<img src='". $pfp ."' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%; object-fit: cover'>";
-        echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a><button style='margin-left: 20px; background-color: #8705f1; color: white; border-radius: 20px'>Add as a friend</button></div>";
+        echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a><button style='margin-left: 20px; background-color: #8705f1; color: white; border-radius: 20px;'>Add</button></div>";
     }
 }

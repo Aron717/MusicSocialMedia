@@ -5,6 +5,7 @@ if (!isset($_SESSION["useruid"])) {
     exit();
 }
 ?>
+<div style="width: 100%; height: 100%">
     <section style="width: 100vw; height: 700px; background-image: url('images/bg.jpg')">
         <div style="background-color: rgba(0,0,0,0.51); width: 100vw; height: 700px; display: flex; flex-direction: row; align-items: center; justify-content: space-around; backdrop-filter: blur(3px) hue-rotate(200deg)">
             <div style="display: flex; flex-direction: column; align-items: center">
@@ -17,6 +18,8 @@ if (!isset($_SESSION["useruid"])) {
             <img src="images/index2-img1.jpg" alt="Music Production" style="width: 40%; margin-top: 20px" draggable="false">
         </div>
     </section>
+</div>
+
 
 
 <?php
