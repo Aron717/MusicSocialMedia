@@ -78,6 +78,10 @@ li:hover {
 
 .login-button{
     margin: 0 !important;
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: ease-in;
+    transition-duration: 0.2s;
 }
 
 .login-ul {
@@ -260,4 +264,8 @@ p {
 }
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.indexpfp:hover {
+    cursor: pointer;
 }

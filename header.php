@@ -43,9 +43,27 @@
         </form>
         <ul class="login-ul">
             <?php
+
                 if (isset($_SESSION["useruid"])) {
+                    $pfpid = $_SESSION["userid"];
                     echo "<li class='login-button'><a href='includes/logout.inc.php'>Log out</a></li>";
-                    echo "<li class='login-button'><a href='profile.php'>Profile</a></li>";
+                    $sqlImg = "SELECT * FROM profileimg WHERE userid = '$pfpid';";
+                    $resultImg = mysqli_query($conn, $sqlImg);
+                    while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+                        if ($rowImg["status"] == 0) {
+                            $sessionid = $_SESSION["userid"];
+                            $filename = "data/profile" . $sessionid . "*";
+                            $fileinfo = glob($filename);
+                            $fileExt = explode(".", $fileinfo[0]);
+                            $fileactualext = $fileExt[1];
+                            $pfp = 'data/profile' . $pfpid . '.' . $fileactualext . '?' . mt_rand();
+                        } else {
+                            $pfp = 'images/nopfp.png';
+                        }
+
+
+                    }
+                    echo "<li class='indexpfp'><img onclick='window.location.href=\"profile.php\"' class='indexpfp' style='width: 50px; height: 50px; border-radius: 50%; margin-left: 5px; object-fit: cover' src='$pfp'></li>";
                 }
                 else {
                     echo "<li class='login-button'><a href='login.php'>Log in</a></li>";
