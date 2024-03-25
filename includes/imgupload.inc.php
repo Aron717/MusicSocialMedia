@@ -36,6 +36,6 @@ if (isset($_POST["submit"])) {
         }
     }
     else {
-        echo "You cannot upload files of this type!";
+        header("Location: ../profile.php?error=wrongfile");
     }
 }

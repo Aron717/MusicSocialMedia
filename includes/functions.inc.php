@@ -133,20 +133,20 @@ function search($conn ,$text)
     $query = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($query)) {
         $id = $row["usersId"];
-        echo "<div style='width: 100vw; height: 100px; background-color: rgba(255,255,255,0.53); margin: 20px 0 0 0; display: flex; align-items: center; padding-left: 40px'>";
+        echo "<div style='width: 50vw; height: 100px; background-color: rgba(255,255,255,0.53); border-radius: 10px;margin: 20px 0 0 0; display: flex; align-items: center; padding-left: 40px'>";
         $sqlImg = "SELECT * FROM profileimg WHERE userid = '$id'";
         $resultImg = mysqli_query($conn, $sqlImg);
         while ($rowImg = mysqli_fetch_assoc($resultImg)) {
             echo "<div>";
             if ($rowImg["status"] == 0) {
-                $pfp = 'data/profile'.$id.'.jpg';
+                $pfp = 'data/profile'.$id.'.jpg?'.mt_rand();
             }
             else {
                 $pfp = 'images/nopfp.png';
             }
             echo "</div>";
         }
-        echo "<img src='". $pfp ."' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%;'>";
-        echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a></div>";
+        echo "<img src='". $pfp ."' style='width: 80px; height: 80px; z-index: 999; border-radius: 50%; object-fit: cover'>";
+        echo "<a href='profile.php?id=". $row["usersId"] ."' style='padding-left: 20px'>". $row["usersName"] . "</a><button style='margin-left: 20px; background-color: #8705f1; color: white; border-radius: 20px'>Add as a friend</button></div>";
     }
 }
