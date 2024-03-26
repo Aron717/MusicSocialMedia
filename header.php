@@ -12,18 +12,33 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .search::placeholder {
+            color: white;
+        }
+        .liimg {
+            width: 1.4vw;
+            color: white;
+            backdrop-filter: opacity(-20);
+            padding-right: 0.3vw;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
 <div class="div-nav">
     <header>
-        <img class="logo" onclick="window.location.href='index.php'" src="images/logo.png" alt="">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="">Costumers/Creators</a></li>
-            <li><a href="">About us</a></li>
+        <img class="logo" onclick="window.location.href='index.php'" src="images/logo.png" alt="" style="width: 4vw">
+        <form action="search.php" method="post" style="width: 100%">
+            <input class="search" placeholder="Search..." style="margin-left:2vw; width: 70vw; height: 30px; border-radius: 0; background-color: rgba(128,0,128,0.46);" type="text" name="searchbar">
+        </form>
+        <ul style="justify-content: space-evenly; width: 24vw">
+            <li><a href="index.php"><img class="liimg" src="images/homepage.png" alt=""></a></li>
+            <li><a href="products.php"><img class="liimg" src="images/products.png" alt=""></a></li>
+            <li><a href=""><img class="liimg" src="images/customers.png" alt=""></a></li>
+            <li><a href=""><img class="liimg" src="images/aboutus.png" alt=""></a></li>
         </ul>
+
         <?php
         $expected_url = "/MusicSocialMedia/index.php";
         $expected_url2 = "/MusicSocialMedia/index2.php";
@@ -38,10 +53,8 @@
             echo "</div></div>";
         }
         ?>
-        <form action="search.php" method="post">
-            <input placeholder="Search..." style="margin-right: 30px;" type="text" name="searchbar">
-        </form>
-        <ul class="login-ul">
+
+        <ul class="login-ul" style="width: 15vw; align-items: center">
             <?php
 
                 if (isset($_SESSION["useruid"])) {
@@ -63,7 +76,7 @@
 
 
                     }
-                    echo "<li class='indexpfp'><img onclick='window.location.href=\"profile.php\"' class='indexpfp' style='width: 50px; height: 50px; border-radius: 50%; margin-left: 5px; object-fit: cover' src='$pfp'></li>";
+                    echo "<li class='indexpfp'><img onclick='window.location.href=\"profile.php\"' class='indexpfp' style='width: 2.5vw; height: 2.5vw; border-radius: 50%; margin-left: 5px; object-fit: cover' src='$pfp'></li>";
                 }
                 else {
                     echo "<li class='login-button'><a href='login.php'>Log in</a></li>";
