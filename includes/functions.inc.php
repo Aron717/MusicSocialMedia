@@ -139,7 +139,12 @@ function search($conn ,$text)
         while ($rowImg = mysqli_fetch_assoc($resultImg)) {
             echo "<div>";
             if ($rowImg["status"] == 0) {
-                $pfp = 'data/profile'.$id.'.jpg?'.mt_rand();
+                $sessionid = $_SESSION["userid"];
+                $filename = "data/profile".$sessionid."*";
+                $fileinfo = glob($filename);
+                $fileExt = explode(".", $fileinfo[0]);
+                $fileactualext = $fileExt[1];
+                $pfp = 'data/profile'.$id.'.'.$fileactualext.'?'.mt_rand();
             }
             else {
                 $pfp = 'images/nopfp.png';
