@@ -22,6 +22,12 @@
             backdrop-filter: opacity(-20);
             padding-right: 0.3vw;
         }
+
+        .indexdiv {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
     </style>
     <title>Title</title>
 </head>
